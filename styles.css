@@ -1,0 +1,405 @@
+ /* Global Styles */
+ * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+:root {
+    --primary: #8A2BE2;
+    --secondary: #DA70D6;
+    --dark: #13111C;
+    --dark-light: #1E1B2E;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B8B8B8;
+    --accent: #00FF88;
+    --gradient-primary: linear-gradient(45deg, #8A2BE2, #DA70D6);
+    --gradient-dark: linear-gradient(45deg, #13111C, #1E1B2E);
+    --gradient-card: linear-gradient(145deg, rgba(138, 43, 226, 0.1), rgba(218, 112, 214, 0.1));
+}
+
+body {
+    background-color: var(--dark);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar Styles */
+.navbar {
+    background: rgba(19, 17, 28, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 5%;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--gradient-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.connect-wallet {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.connect-wallet:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
+}
+
+/* Hero Section Styles */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 5%;
+}
+
+.hero-box {
+    margin: auto;
+    margin-top: 150px;
+    background: var(--gradient-card);
+    border-radius: 20px;
+    padding: 3rem;
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 40px rgba(138, 43, 226, 0.2);
+}
+
+.hero-box h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-box p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+}
+
+.hero-btn {
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.primary-btn {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+}
+
+.secondary-btn {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid var(--secondary);
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(138, 43, 226, 0.4);
+}
+
+/* Recommendation Form Styles */
+.recommendation-form {
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 2.5rem;
+    background: var(--dark-light);
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(138, 43, 226, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.form-group input, .form-group select {
+    width: 100%;
+    padding: 1rem;
+    background: var(--dark);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: var(--text-primary);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, .form-group select:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.2);
+}
+
+/* Explore Page Styles */
+.explore-container {
+    padding: 100px 5% 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.recommendation-card {
+    background: var(--gradient-card);
+    border-radius: 15px;
+    padding: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.recommendation-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--gradient-primary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.recommendation-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.3);
+}
+
+.recommendation-card:hover::before {
+    opacity: 0.1;
+}
+
+.genre-tag {
+    background: var(--gradient-primary);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(19, 17, 28, 0.95);
+    backdrop-filter: blur(10px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--dark-light);
+    padding: 2.5rem;
+    border-radius: 20px;
+    max-width: 600px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 40px rgba(138, 43, 226, 0.3);
+    position: relative;
+}
+
+.modal-content h2 {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+}
+
+.song-list {
+    margin: 1.5rem 0;
+}
+
+.song-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: var(--dark);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.song-item:hover {
+    border-color: var(--secondary);
+}
+
+.song-info {
+    flex-grow: 1;
+}
+
+.song-title {
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+}
+
+.song-artist {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.reward-btn {
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.reward-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
+}
+
+.close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-modal:hover {
+    color: var(--text-primary);
+}
+
+/* Footer Styles */
+.footer {
+    background: var(--dark-light);
+    padding: 3rem 5%;
+    margin-top: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.footer-section h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.footer-section p, .footer-section a {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    text-decoration: none;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.footer-section a:hover {
+    color: var(--text-primary);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+}
